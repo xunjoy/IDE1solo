@@ -1,0 +1,12 @@
+{
+    "manifest_version": 2,
+    "name": "newnews",
+    "description": "Helping you stay mindful on the internet",
+    "version": "1.0.0",
+    "icons":{"128": "icon_newnews.png"},
+    "browser_action":{
+        "default_icon": "icon_newnews.png",
+        "default_popup": "sidebar.html"
+    },
+    "permissions": ["activeTab"]
+}
