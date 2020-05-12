@@ -1,4 +1,4 @@
-chrome.devtools.panels.elements.createSidebarPane("nn",
+chrome.devtools.panels.elements.createSidebarPane("Redder",
     function(sidebar) {
          sidebar.setPage("panel.html");
          

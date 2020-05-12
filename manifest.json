@@ -1,29 +1,27 @@
 {
-    "manifest_version": 2.1,
+    "manifest_version": 2,
     "name": "newnews",
     "description": "Helping you stay mindful on the internet",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "icons":{"128": "icon_newnews.png"},
     "browser_action":{
         "default_icon": "icon_newnews.png",
-        "default_popup": "sidebar.html"
+        "default_popup": "sidebar.html",
+        "default_title": "Activate newNews"
     },
 
     "permissions": ["activeTab"],
-
-    "background": {
-        "scripts": ["overlay.js"],
-        "persistent": false
-    },
+   
+   
 
     "content_scripts": [
         {
             "matches": [
                 "<all_urls>"
             ],
-            "js": ["sidebar.js", "panel.js", "devtools.js", "overlay.js"]
+            "js": ["background.js", "sidebar.js"]
         }
-    ],
-    "devtools_page": "devtools.html",
-    "short_name": "nn"
+    ]
+
+   
 }
