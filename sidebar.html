@@ -3,6 +3,9 @@
 <!-- Remember to use shortcuts! for both HTMl and comment toggle -->
 
 <html lang="en">
+
+
+<!-- head: This is section containing specifications and positioning -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,36 +91,53 @@
     .flex  .fa {
         font-size: 90px;
         color: #2f5876;
-        /* this sets the size of icons, which are part of a fontset */
+        /* this sets the size of icons, which are part of a fontAwesome */
     }
 
     </style>
 </head>
 
-<!-- You are naming all the different classes right here -->
+
+<!-- body: You are naming & setting meanings of the classes right here -->
 <body>
+    <!-- Header: includes logo + name + version -->
     <div class="modal-header">
         <h1 class="logo">
             <img src="images/logo.png" alt="TestLogo" class="logo-icon"> newNews <span class="version">1.0.0</span>
         </h1>
 </div>
+
+<!-- Caption for the logo -->
 <div class="modal-content">
     <p>A more mindful news diet</p>
 </div>
+
+<!-- Icon/buttons -->
 <div class="modal-icons">
+
+    <!-- This sets flexible container -->
     <div class="flex-container">
+        <!-- Icon/button 1 -->
         <div class="flex">
-            <a href="https://joyqzhang.com/about" target="_blank"></a>
-            <i class="fa fa-globe"></i>
+            <a href="https://joyqzhang.com/about" target="_blank">
+                <i class="fa fa-globe"></i> </a>
+            
         </div>
+
+        <!-- Icon/button 2 -->
         <div class="flex">
-            <a href="https://github.com/xunjoy" target="_blank"></a>
-            <i class="fa fa-github"></i>
+            <a href="https://github.com/xunjoy" target="_blank"><i class="fa fa-github"></i></a>
+            
         </div>
     </div>
 </div>
+
     </div>
 
+    <!-- This runs the  script -->
     <script src="sidebar.js"></script>
+
 </body>
+
+
 </html>
