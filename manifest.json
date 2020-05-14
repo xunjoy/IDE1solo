@@ -10,6 +10,11 @@
         "default_title": "Activate newNews"
     },
 
+    "background": {
+        "scripts": ["vendors/jquery.min.js","background.js"],
+        "persistent": true
+      },
+
     "permissions": [
         "activeTab",
         "tabs",
@@ -23,7 +28,7 @@
             "matches": [
                 "<all_urls>"
             ],
-            "js": ["vendors/jquery.min.js","background.js", "sidebar.js", "vendors/jquery.min.js", "sentiment.js","visualize.js"]
+            "js": ["inject.js","background.js", "sidebar.js", "vendors/jquery.min.js", "sentiment.js","visualize.js"]
         }
     ],
 
