@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "newnews",
     "description": "Helping you stay mindful on the internet",
-    "version": "3.0.0",
+    "version": "4.0.0",
     "icons":{"128": "icon_newnews.png"},
     "browser_action":{
         "default_icon": "icon_newnews.png",
@@ -10,8 +10,12 @@
         "default_title": "Activate newNews"
     },
 
-    "permissions": ["activeTab"],
-   
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "http://*/",
+        "https://*/",
+        "storage"],
    
 
     "content_scripts": [
@@ -19,9 +23,11 @@
             "matches": [
                 "<all_urls>"
             ],
-            "js": ["background.js", "sidebar.js"]
+            "js": ["vendors/jquery.min.js","background.js", "sidebar.js", "vendors/jquery.min.js", "sentiment.js","visualize.js"]
         }
-    ]
+    ],
+
+    "content_security_policy": "script-src 'self' https://access.alchemyapi.com/calls/url/URLGetRankedNamedEntities; object-src 'self'"
 
    
 }

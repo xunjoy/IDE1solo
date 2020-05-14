@@ -98,6 +98,7 @@
 
     .btn {
         outline: none;
+        border: none;
     }
 
     </style>
@@ -123,43 +124,27 @@
 
     <!-- This sets flexible container -->
     <div class="flex-container">
-        <!-- Icon/button 1 -->
+        
+        <!-- Activate newNews (background redder test) -->
         <div class="flex">
-            <a href="https://joyqzhang.com/about" target="_blank">
-                <i class="fa fa-globe"></i> </a>
-            
-        </div>
-
-        <!-- Icon/button 2 -->
-        <div class="flex">
-            <a href="https://github.com/xunjoy" target="_blank"><i class="fa fa-github"></i></a>
-            
-        </div>
-
-        <!-- Activate newNews -->
-        <div class="flex">
-            <button id = "myButton", class = "btn"><i class="fa fa-check-circle"></i> </button>
+            <button id = "redder", class = "btn"><i class="fa fa-registered"></i> </button>
             <script src=background.js></script> 
+        </div>
+
+        <!-- Activate newNews (d3.js test) -->
+        <div class="flex">
+                <button id = "d3js", class = "btn"><i class="fa fa-pagelines"></i> </button>
+                <script src=visualize.js></script> 
+            </div>
+
+        <!-- Activate newNews (sentiment analysis test) -->
+        <div class="flex">
+                <button id = "sentiment", class = "btn"><i class="fa fa-check-circle"></i> </button>
+                <script src=sentiment.js></script> 
         </div>
     </div>
 </div>
 
-<!-- Trying out a new div class for rearranging screen -->
-<div class="rearrange-popup">
-    <style>
-    /* adding rearrange overlay */
-    /* .rearrange-popup{
-        position: fixed;
-        top: 0px;
-        bottom: 0px;
-        left: 0px;
-        right: 0px;
-        z-index: 999999999;
-        /* Setting background a diff color for testing */
-        /* background: #ddbc75; */
-    /* } */ 
-    </style>
-</div>
 
     </div>
 
