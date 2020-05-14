@@ -1,14 +1,14 @@
-var theButton = document.getElementById("redder");
+var toggle = false;
 
-theButton.addEventListener("click",function(tab) {
-    // No tabs or host permissions needed!
-    console.log('Turning ' + tab.url + ' red!');
-    chrome.tabs.executeScript({
-        code: 'document.body.style.backgroundColor="red"',
-        //file: "overlay.html"
-    });
+function toggleSwitch() {
+  toggle = !toggle;
+  if (!toggle) { chrome.browserAction.setIcon({ path: "icon_newnews_active.png" }); }
+  else { chrome.browserAction.setIcon({ path: "icon_newnews.png" }); }
+}
 
-    //chrome.devtools.panels.create("Overlay", "overlay.html");
+chrome.browserAction.onClicked.addListener(function (tab) { toggleSwitch(); });
 
-
-}, false);
+chrome.runtime.onMessage.addListener(
+  function (request, sender, sendResponse) {
+    if (request.greeting == "isActive") { sendResponse({ isToggled: toggle }); }
+  });

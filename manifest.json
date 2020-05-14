@@ -11,15 +11,15 @@
     },
 
     "background": {
-        "scripts": ["vendors/jquery.min.js"],
+        "scripts": ["background.js"],
         "persistent": true
       },
 
     "permissions": [
         "activeTab",
         "tabs",
-        "http://*/",
-        "https://*/",
+        "http://www.google.com/",
+        "https://language.googleapis.com/",
         "storage"],
    
 
@@ -28,7 +28,10 @@
             "matches": [
                 "<all_urls>"
             ],
-            "js": ["sidebar.js"]
+
+            "js": ["sidebar.js", "sentiment.js", "inject.js", "redder.js", "visualize.js"]
+
+            
         }
     ],
 
