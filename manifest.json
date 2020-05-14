@@ -11,7 +11,7 @@
     },
 
     "background": {
-        "scripts": ["vendors/jquery.min.js","background.js"],
+        "scripts": ["vendors/jquery.min.js"],
         "persistent": true
       },
 
@@ -28,7 +28,7 @@
             "matches": [
                 "<all_urls>"
             ],
-            "js": ["inject.js","background.js", "sidebar.js", "vendors/jquery.min.js", "sentiment.js","visualize.js"]
+            "js": ["sidebar.js"]
         }
     ],
 

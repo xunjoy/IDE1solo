@@ -1,4 +1,4 @@
-
+console.log("sentiment is running");
 
 var title;
 var url;
@@ -18,7 +18,17 @@ theButton.addEventListener("click",function(tab) {
         //file: "d3/d3.min.js",
         //file: "reviews.js"
     });
-
-    
 }, false);
-  
+
+// Injected script returns URL & title and triggers API call and pop-up
+chrome.runtime.onMessage.addListener(function (request) {
+
+    console.log("request is " + request.title)
+    title = request.title;
+    url = request.url;
+    getAlchemyInfo(url).then(function() {
+      console.log("second then")
+      chrome.browserAction.setPopup({tabId: currentTab, popup: 'popup/popup.html'});
+      // chrome.extension.onClicked.removeListener();
+    });
+});

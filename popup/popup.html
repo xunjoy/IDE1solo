@@ -1,0 +1,61 @@
+<html>
+    <head>
+      <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Averia+Serif+Libre' rel='stylesheet' type='text/css'>
+      <style type="text/css">
+        body {
+          background-image:url(sepia.jpg);
+          border: 2px solid black;
+          font-family: 'Averia Serif Libre';
+          font-size: 12px;
+          min-width: 400px;
+          padding: 5px;
+        }
+
+        h1 {
+          font-family: 'Lobster Two';
+          font-size: 15px;
+          margin:0;
+        }
+
+        h2 {
+          font-family: 'Glegoo', sans-serif;
+          font-size: 20px;
+          margin-top: 0px;
+        }
+
+        .bar.positive {
+          fill: #559776;
+        }
+
+        .bar.negative {
+          fill: #D66565;
+        }
+
+        .bar:hover {
+          fill: gray;
+        }
+
+        .axis text {
+          font: 10px sans-serif;
+        }
+
+        .axis path,
+        .axis line {
+          fill: none;
+          stroke: #000;
+          shape-rendering: crispEdges;
+        }
+      </style>
+      <script type="text/javascript" src="../vendors/jquery.min.js"></script>
+      <script type="text/javascript" src="../vendors/d3.min.js"></script>
+      <script type="text/javascript" src="popup.js"></script>
+    </head>
+    <body>
+      <h1>Senti-Trends</h1>
+      <h2></h2>
+      <ul></ul>
+      <div id="chart"></div>
+    </body>
+</html>
