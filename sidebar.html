@@ -11,97 +11,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
+
     <title>newNews</title>
     <link rel = "stylsheet" href= "https://fonts.googleapis.com/css?family=Open+Sans"type = "text/css">
+
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-    <style>
-    html, body{
-        font-family: 'Open Sans', sans-serif;
-        font-size: 14px;
-        margin: 0;
-        min-height: 180px;
-        padding: 0;
-        width: 384px;
 
-    }
+    <!-- added jquery script -->
+    <script src= "jquery-3.5.1.min.js"></script>
 
-    h1{
-        font-family: 'Menlo', monospace;
-        font-size: 22px;
-        font-weight: 400;
-        margin: 0;
-        color: #2f5876;   
-    }
-    a:link, a:visited{
-        color:black;
-        outline: 0;
-        text-decoration: none;
-    }
-   
-    img{
-        width: 30px; /* the logo */
-    }
 
-    .modal-header{
-        align-items: center;
-        border-bottom: 0.5px solid #dadada;
-    }
+    <!-- adding stylesheet -->
+    <link rel="stylesheet" type = "text/css" href = "style.css">
 
-    .modal-content{
-        padding: 0 22px; /* 0 on top and bottom, 22 on left */
-    }
-
-    .modal-icons{
-        border-top: 0.5px solid #dadada;
-        height: 50px;
-        width: 100%;
-    }
-
-    .logo{
-        padding: 15px; 
-        /* To refer to any class of objects, just use "." + <class name>*/
-    }
-
-    .logo-icon{
-        vertical-align: text-bottom;
-        margin-right: 12px;
-    }
-
-    .version{
-        color: #444;
-        font-size: 18px;
-    }
-
-    .flex-container{
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 22px;
-        z-index: 9999999999;
-    }
-
-    .flex{
-        opacity: 1;
-        transition: opacity  0.2 ease-in-out;
-        width: 120px;
-    }
-
-    .flex:hover{
-        opacity:0.4;
-    }
-
-    .flex  .fa {
-        font-size: 90px;
-        color: #2f5876;
-        /* this sets the size of icons, which are part of a fontAwesome */
-    }
-
-    .btn {
-        outline: none;
-        border: none;
-    }
-
-    </style>
+  
 </head>
 
 
@@ -115,8 +39,11 @@
 </div>
 
 <!-- Caption for the logo -->
-<div class="modal-content">
-    <p>A more mindful news diet</p>
+<div class="modal-content" >
+    <p id = "greet">A more mindful news diet</p>
+    <script src=popup.js></script> 
+    <!-- input type for jquery test -->
+    <input type ="text" id = "name">
 </div>
 
 <!-- Icon/buttons -->
@@ -125,23 +52,34 @@
     <!-- This sets flexible container -->
     <div class="flex-container">
         
-        <!-- Activate newNews (background redder test) -->
+        <!-- Activate newNews (background redder test)
         <div class="flex">
             <button id = "redder", class = "btn"><i class="fa fa-registered"></i> </button>
             <script src=redder.js></script> 
-        </div>
+        </div> -->
 
-        <!-- Activate newNews (d3.js test) -->
+        <!-- Activate newNews (d3.js test)
         <div class="flex">
                 <button id = "d3js", class = "btn"><i class="fa fa-pagelines"></i> </button>
                 <script src=visualize.js></script> 
-            </div>
+            </div> -->
 
         <!-- Activate newNews (sentiment analysis test) -->
         <div class="flex">
                 <button id = "sentiment", class = "btn"><i class="fa fa-check-circle"></i> </button>
                 <script src=content.js></script> 
         </div>
+
+        <!-- Activate newNews (jquery test) -->
+        <div class="flex">
+                <button id = "sentiment", class = "btn"><i class="fa fa-globe"></i> </button>
+
+                <!-- UPDATE w js! -->
+                
+        </div>
+        
+        
+        
     </div>
 </div>
 

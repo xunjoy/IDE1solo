@@ -2,8 +2,9 @@
     "manifest_version": 2,
     "name": "newnews",
     "description": "Helping you stay mindful on the internet",
-    "version": "4.0.0",
-    "icons":{"128": "icon_newnews.png", "48": "icon_newnews_active.png"},
+    "version": "5.0.0",
+    "icons":{"128": "icon_newnews.png", "48": "icon_newnews_48.png", "16": "icon_newnews_16.png"},
+
     "browser_action":{
         "default_icon": "icon_newnews.png",
         "default_popup": "sidebar.html",
@@ -26,7 +27,7 @@
     "content_scripts": [
         {
             "matches": [
-                "<all_urls>"
+                "<all_urls>" 
             ],
 
             "js": ["sidebar.js", "sentiment.js", "inject.js", "redder.js", "visualize.js"]
