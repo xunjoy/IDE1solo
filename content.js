@@ -1,0 +1,115 @@
+
+
+//
+//If button  is pressed
+var theButton = document.getElementById("sentiment");
+
+theButton.addEventListener("click",function(tab) {
+    // No tabs or host permissions needed!
+    console.log("sentiment is running");
+    //getCurrentTab();
+
+    var smiley = document.createElement("div");smiley.setAttribute("style", "position:absolute;z-index:10000;font-weight:bolder;font-size:100px;margin:-20px 0 0 -20px;");
+    smiley.setAttribute("id", "smiley");
+    var elements = document.getElementsByTagName('body');
+    elements[0].appendChild(smiley);
+
+    const API_KEY = "AIzaSyDMU8yc5xcCh2aNyEOjw0t25guXHc80pyE"; //Update this
+    var xmouse = 0, ymouse = 0;
+    var toggle = false;
+
+    const smilestate = {
+    '-1.0': "👿", '-1': "👿", '-0.9': "😡", '-0.8': "😭",
+    '-0.7': "😩", '-0.6': "😖", '-0.5': "😢", '-0.4': "😓", '-0.3': "😔",
+    '-0.2': "😨", '-0.1': "🙁", '0': "😐", '0.1': "🙂", '0.2': "😉", '0.3':
+        "😀", '0.4': "😃", '0.5': "😄", '0.6': "😆", '0.7': "😁", '0.8': "🤗",
+    '0.9': "😂", '1': "⭐", '1.0': "⭐"
+    };
+    const thinkingSmiley = "🤔";
+    window.onload = init; 
+
+
+    function init() {
+        if (window.Event) { document.captureEvents(Event.MOUSEMOVE); }
+        document.onmousemove = getCursorXY;
+    }
+
+    function getCursorXY(e) {
+        xmouse = (window.Event) ? e.pageX : event.clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
+        ymouse = (window.Event) ? e.pageY : event.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
+    }
+
+    function postTextToGoogle(text) {
+        let data = "{\n \"document\": {\n  \"type\": \"PLAIN_TEXT\",\n  \"content\": " + "\" " + text + "not sad\"\n },\n \"encodingType\": \"UTF8\"\n}";
+    
+        let xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        xhr.addEventListener("readystatechange", function () {
+            this.readyState === 4 ? updateSmiley(this.responseText) : setDefaultSmiley();
+        });
+    
+    // Update API KEY below.
+    xhr.open("POST", "https://language.googleapis.com/v1/documents:analyzeSentiment?fields=documentSentiment&key=" + API_KEY);
+    xhr.setRequestHeader("Authorization", "Basic am9uYXRoYW4ubHVuZG1hcmtAbmV0bGlnaHQuY29tOlN0cmlkZXIwMTY1");
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Cache-Control", "no-cache");
+    xhr.setRequestHeader("Postman-Token", "fbb90407-987e-47f3-afae-10575c402392");
+    xhr.send(data);
+
+    }
+
+    function updateSmiley(googleResponse) {
+        let json = JSON.parse(googleResponse);
+        let sScore = json.documentSentiment.score;
+    // Optional Usage --> let sMagnitude = json.documentSentiment.magnitude;  
+        let elem = document.getElementById("smiley")
+        elem.innerHTML = smilestate[sScore];
+        elem.style.top = ymouse + "px";
+        elem.style.left = xmouse + "px";
+    }
+
+    function setDefaultSmiley() {
+        let elem = document.getElementById("smiley");
+        elem.innerHTML = thinkingSmiley;
+        elem.style.top = ymouse + "px";
+        elem.style.left = xmouse + "px";
+    }
+
+    function removeQuotations(text) { return text.replace(/['"]+/g, ''); }
+
+
+
+    //window.onload = init;
+
+    chrome.tabs.executeScript(null, { 
+        //file: 'inject.js' ,
+        code: 'document.body.style.backgroundColor="green"',
+        //file: "d3/d3.min.js",
+        //file: "reviews.js"
+    });
+
+    chrome.runtime.sendMessage({ greeting: "isActive" }, function (response) {
+        if (response.isToggled) {
+            let selection = window.getSelection().toString();
+            if (selection.length > 10) { postTextToGoogle(removeQuotations(selection)); }
+        }
+        else { document.getElementById("smiley").innerHTML = ""; }
+    });
+
+}, false);
+
+
+//
+//
+
+
+//moved below to section above
+// document.addEventListener("click", function () {
+//     chrome.runtime.sendMessage({ greeting: "isActive" }, function (response) {
+//         if (response.isToggled) {
+//             let selection = window.getSelection().toString();
+//             if (selection.length > 10) { postTextToGoogle(removeQuotations(selection)); }
+//         }
+//         else { document.getElementById("smiley").innerHTML = ""; }
+//     });
+// });

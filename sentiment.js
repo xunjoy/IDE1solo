@@ -1,9 +1,9 @@
 console.log("sentiment is running");
 
-var title;
-var url;
-var sentimentArray;
-var currentTab;
+// var title;
+// var url;
+// var sentimentArray;
+// var currentTab;
 
 var theButton = document.getElementById("sentiment");
 

@@ -3,7 +3,7 @@
     "name": "newnews",
     "description": "Helping you stay mindful on the internet",
     "version": "4.0.0",
-    "icons":{"128": "icon_newnews.png"},
+    "icons":{"128": "icon_newnews.png", "48": "icon_newnews_active.png"},
     "browser_action":{
         "default_icon": "icon_newnews.png",
         "default_popup": "sidebar.html",
