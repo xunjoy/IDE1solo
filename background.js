@@ -39,13 +39,51 @@
 // });
 console.log('background.js is running');
 
-  var notif = {
-    type: 'basic',
-    iconUrl: 'icon_newnews_active.png',
-    title: 'This is a news platform',
-    message: 'To prevent information overload, it’s important to be mindful of your mental health and news consumption.'
-  }
+// $(document).ready(function() {
+//   if(chrome.notifications){
+//     chrome_notification_create();
+//     console.log('background.js passed jquery');
+//   }
+// });
+
+
+
+// chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+//   var notif = {
+//     type: 'basic',
+//     iconUrl: 'icon_newnews_active.png',
+//     title: 'This is a news platform',
+//     message: 'To prevent information overload, it’s important to be mindful of your mental health and news consumption.'
+//   }
   
-  chrome.notifications.create('bbcNotif', notif,function(){});
+//   if (request.type == "worktimer-notification")
+//     chrome.notifications.create('worktimer-notification', notif, function() {console.log('notification is working') });
+
+//   sendResponse();
+
+//   var chrome_notification_create = function notification() {
+
+//     console.log('background notif script')
+
+//     chrome.notifications.create('bbcNotif', notif,function(){console.log('notification is working from within onMessage' + chrome.runtime.lastError)});
+
+//   };
+// });
 
 
+
+//   var chrome_notification_create = function notification() {
+
+//     console.log('background notif script')
+
+//     var notif = {
+//       type: 'basic',
+//       iconUrl: 'icon_newnews_active.png',
+//       title: 'This is a news platform',
+//       message: 'To prevent information overload, it’s important to be mindful of your mental health and news consumption.'
+//     }
+    
+
+//     chrome.notifications.create('bbcNotif', notif,function(){console.log('notification is working outside')});
+
+//   };
