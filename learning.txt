@@ -1,4 +1,0 @@
-test
-"this is a test for git commit"
-
-And I've just made an edit in a new branch
